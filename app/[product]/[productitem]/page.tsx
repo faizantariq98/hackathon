@@ -1,12 +1,14 @@
 "use client"
 import Image from 'next/image'
-import { useState,useEffect } from 'react'
+import { useState,useEffect,useContext } from 'react'
 import { Button } from '@/components/ui/button'
 import { ShoppingCart } from 'lucide-react'
 import { urlForImage } from '@/sanity/lib/image'
 import { client } from "@/sanity/lib/client"
 import { useParams} from 'next/navigation'
-import { productList } from '@/app/page'
+import { CartContext } from '@/app/store/MainStore'
+import { useRouter } from 'next/navigation'
+
 
 
 type dataType ={
@@ -21,19 +23,11 @@ type dataType ={
 }
 
 
-function saveData(id:string|undefined,name:string|undefined,price:number|undefined,quantity:number|undefined,category:string|undefined,size:string|undefined){
-  productList.push({
-    id:id,
-    productName:name,
-    price:price,
-    quantity:quantity,
-    productype:category,
-    size:size
-  })
-  console.log('onClicked',productList);
-}
-
 const ProductItem =  () => {
+
+    const {addToCart} = useContext(CartContext);
+    const router = useRouter();
+
     const params = useParams();
     const [response,setResponse] = useState<dataType>();
     const [firstUrl,setFirstURL] = useState(''); 
@@ -53,7 +47,7 @@ const ProductItem =  () => {
       const [ImageURL,setImageURL] = useState<string>('');
       const [size,setSize] = useState('M')
 
-      console.log('this is productList',productList);
+        
       return <>
       <div className='mt-8 mb-12 flex flex-col lg:flex-row lg:gap-4 justify-center gap-2 mx-4 border-b-4'>
        <div className='flex flex-row lg:flex-col gap-2 justify-center rounded m-4 px-4'>
@@ -98,13 +92,14 @@ const ProductItem =  () => {
                         <Button className=' border-2 ' onClick={()=>{
                           if(quantity<=1)return;
                           setQuantity(quantity - 1 
-                          )
+                            )
                         }}>
                           -
                         </Button>
                         <h6 className='text-xl font-bold'>{quantity}</h6>
                         <Button className=' border-2 ' onClick={()=>{
-                          setQuantity(quantity + 1 )
+                          setQuantity(quantity + 1 
+                            )
                         }}>
                           +
                         </Button>
@@ -112,7 +107,16 @@ const ProductItem =  () => {
                         <h4 className='mx-10 text-2xl font-bold'>$ {response?.price ? (response.price * quantity):''}</h4>
                   </div>
 
-                  <Button className='my-2' onClick={()=>{saveData(response?._id,response?.productName,response?.price,quantity,response?.category,size)}}>
+                  <Button className='my-2' onClick={()=>{
+                    addToCart({id:response?._id,
+                      name:response?.productName,
+                      type:response?.dressType,
+                      quantity:quantity,
+                      price:response?.price,
+                      pic:firstUrl
+                    })
+                    router.push('/');
+                  }}>
                       <ShoppingCart className="mr-2 h-4 w-4" /> Add To Cart
                   </Button>
               </div>

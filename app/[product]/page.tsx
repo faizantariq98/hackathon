@@ -50,7 +50,9 @@ const Product =async ({params}:{params:{product:string}}) => {
         }
         else
         {
-          return <Error/>
+          return <Error error={"Something Went Wrong Please Try Again"} reset={()=>{
+
+          }}/>
         }
       }
 }
