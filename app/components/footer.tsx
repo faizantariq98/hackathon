@@ -22,7 +22,7 @@ const Footer = () => {
 
         <div>
             <h1 className='text-xl font-bold font-serif px-4 py-6'>Hackathon Market</h1>
-            <ul className=''>
+            <ul className='flex flex-row md:flex-col'>
                 <Link className='text-lg px-4 ' href="/male">male</Link>
                 <Link className='text-lg px-4 ' href="/female">female</Link>
                 <Link className='text-lg px-4 '  href="/kids">kids</Link>
@@ -32,7 +32,7 @@ const Footer = () => {
 
         <div>
             <h1 className='text-xl font-bold font-serif px-4 py-6'>Hackathon Market</h1>
-            <ul className=''>
+            <ul className='flex flex-row md:flex-col'>
             <Link className='text-lg px-4 ' href="/male">male</Link>
                 <Link className='text-lg px-4 ' href="/female">female</Link>
                 <Link className='text-lg px-4 '  href="/kids">kids</Link>
@@ -42,7 +42,7 @@ const Footer = () => {
 
         <div>
             <h1 className='text-xl font-bold font-serif px-4 py-6'>Hackathon Market</h1>
-            <ul className=''>
+            <ul className='flex flex-row md:flex-col'>
             <Link className='text-lg px-4 ' href="/male">male</Link>
                 <Link className='text-lg px-4 ' href="/female">female</Link>
                 <Link className='text-lg px-4 '  href="/kids">kids</Link>
