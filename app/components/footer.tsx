@@ -1,5 +1,6 @@
 import React from 'react'
 import { Facebook,Twitter,Instagram,Linkedin } from 'lucide-react';
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -22,30 +23,30 @@ const Footer = () => {
         <div>
             <h1 className='text-xl font-bold font-serif px-4 py-6'>Hackathon Market</h1>
             <ul className=''>
-                <li className='text-lg px-4 '>faizan</li>
-                <li className='text-lg px-4 '>faizan</li>
-                <li className='text-lg px-4 '>faizan</li>
-                <li className='text-lg px-4 '>faizan</li>
+                <Link className='text-lg px-4 ' href="/male">male</Link>
+                <Link className='text-lg px-4 ' href="/female">female</Link>
+                <Link className='text-lg px-4 '  href="/kids">kids</Link>
+                <Link className='text-lg px-4 '  href="/cart">cart</Link>
             </ul>
         </div>
 
         <div>
             <h1 className='text-xl font-bold font-serif px-4 py-6'>Hackathon Market</h1>
             <ul className=''>
-                <li className='text-lg px-4 '>faizan</li>
-                <li className='text-lg px-4 '>faizan</li>
-                <li className='text-lg px-4 '>faizan</li>
-                <li className='text-lg px-4 '>faizan</li>
+            <Link className='text-lg px-4 ' href="/male">male</Link>
+                <Link className='text-lg px-4 ' href="/female">female</Link>
+                <Link className='text-lg px-4 '  href="/kids">kids</Link>
+                <Link className='text-lg px-4 '  href="/cart">cart</Link>
             </ul>
         </div>
 
         <div>
             <h1 className='text-xl font-bold font-serif px-4 py-6'>Hackathon Market</h1>
             <ul className=''>
-                <li className='text-lg px-4 '>faizan</li>
-                <li className='text-lg px-4 '>faizan</li>
-                <li className='text-lg px-4 '>faizan</li>
-                <li className='text-lg px-4 '>faizan</li>
+            <Link className='text-lg px-4 ' href="/male">male</Link>
+                <Link className='text-lg px-4 ' href="/female">female</Link>
+                <Link className='text-lg px-4 '  href="/kids">kids</Link>
+                <Link className='text-lg px-4 '  href="/cart">cart</Link>
             </ul>
         </div>
     </div>

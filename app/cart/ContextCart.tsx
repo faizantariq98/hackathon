@@ -7,13 +7,24 @@ import { Trash2 } from "lucide-react";
 import { CartContext } from "../store/MainStore";
 import { CircleOff } from "lucide-react";
 import getStripePromise from "@/lib/stripe";
+import { toast } from "react-toastify";
 
 const ContextCart = () => {
   const {cartState,deleteFromCart,increment,decrement} = useContext(CartContext);
 
 
   const handleCheckout = async ()=>{
-    
+    toast.info('Please Wait you are being redirected to Stripe payment page', {
+      position: "top-center",
+      autoClose: false,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
+
     const stripePromise=await getStripePromise();
     const response = await fetch("/api/",{
       method:"POST",

@@ -8,6 +8,7 @@ import { client } from "@/sanity/lib/client"
 import { useParams} from 'next/navigation'
 import { CartContext } from '@/app/store/MainStore'
 import { useRouter } from 'next/navigation'
+import { toast } from 'react-toastify'
 
 
 
@@ -115,6 +116,16 @@ const ProductItem =  () => {
                       price:response?.price,
                       pic:firstUrl
                     })
+                    toast.success('Item succsfully Added to Cart', {
+                      position: "top-right",
+                      autoClose: 5000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                      theme: "light",
+                      });
                     router.push('/');
                   }}>
                       <ShoppingCart className="mr-2 h-4 w-4" /> Add To Cart
